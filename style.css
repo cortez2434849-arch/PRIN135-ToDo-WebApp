@@ -1,0 +1,301 @@
+:root {
+	--ink: #1f2124;
+	--dark: #3b4045;
+	--muted: #6b7078;
+	--faint: #a3a8af;
+	--line: #e3e5e8;
+	--field: #f4f5f7;
+	--border: #9aa0a6;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+button {
+	cursor: pointer;
+	font-family: inherit;
+}
+
+body {
+	font-family: "Inter", system-ui, sans-serif;
+	color: var(--ink);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 1rem;
+}
+
+main {
+	width: 100%;
+	max-width: 720px;
+	border: 2px solid var(--border);
+	padding: 2rem;
+	border-radius: 1rem;
+	background: #fff;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+/* Add form */
+.action {
+	display: flex;
+	gap: 0.75rem;
+	margin-block: 1.5rem;
+}
+
+.action input {
+	height: 3.5rem;
+	border-radius: 0.5rem;
+	border: 2px solid var(--border);
+	background: var(--field);
+	padding: 0 1rem;
+	font-family: inherit;
+	font-size: 1rem;
+	color: var(--ink);
+}
+
+.action input::placeholder {
+	color: var(--muted);
+}
+
+.action input:focus-visible {
+	outline: 2px solid var(--dark);
+	outline-offset: 2px;
+}
+
+#todo-name {
+	flex: 1;
+	min-width: 0;
+}
+
+#todo-hours {
+	width: 7rem;
+}
+
+.action button {
+	height: 3.5rem;
+	padding-inline: 1.5rem;
+	background-color: var(--dark);
+	border-radius: 0.5rem;
+	border: none;
+	color: #fff;
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+.action button:hover {
+	background-color: var(--ink);
+}
+
+/* Filters */
+.filters {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filter-group {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.filters input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.filters label {
+	padding: 0.2rem 1rem;
+	border: 2px solid transparent;
+	border-radius: 999px;
+	color: var(--muted);
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.filters input[type="radio"]:checked + label {
+	border-color: var(--ink);
+	color: var(--ink);
+	font-weight: 600;
+}
+
+.filters input[type="radio"]:focus-visible + label {
+	outline: 2px solid var(--dark);
+	outline-offset: 2px;
+}
+
+.link-button {
+	background: none;
+	border: none;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	color: var(--muted);
+	font-size: 1rem;
+}
+
+.link-button:hover {
+	color: var(--ink);
+}
+
+/* Tasks */
+.tasks {
+	margin-top: 0.75rem;
+	border-bottom: 1px solid var(--line);
+}
+
+.task {
+	padding: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid var(--line);
+}
+
+.task:first-child {
+	border-top: none;
+}
+
+.task-left,
+.task-right {
+	display: flex;
+	align-items: center;
+}
+
+.task-left {
+	gap: 1rem;
+}
+
+/* Custom checkbox */
+.task input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 1.4rem;
+	height: 1.4rem;
+	border: 2px solid var(--dark);
+	border-radius: 0.3rem;
+	background: #fff;
+	cursor: pointer;
+	display: grid;
+	place-content: center;
+	flex-shrink: 0;
+}
+
+.task input[type="checkbox"]::after {
+	content: "";
+	width: 0.35rem;
+	height: 0.65rem;
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+	transform: translateY(-1px) rotate(45deg);
+	opacity: 0;
+}
+
+.task input[type="checkbox"]:checked {
+	background: var(--dark);
+}
+
+.task input[type="checkbox"]:checked::after {
+	opacity: 1;
+}
+
+.task input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--dark);
+	outline-offset: 2px;
+}
+
+.task-name {
+	cursor: pointer;
+	font-size: 1.05rem;
+}
+
+.task input:checked + .task-name {
+	text-decoration: line-through;
+	color: var(--muted);
+}
+
+/* Badges */
+.badge {
+	width: fit-content;
+	border: 2px solid var(--dark);
+	border-radius: 999px;
+	padding: 0.15rem 0.85rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.badge-easy {
+	background: #fff;
+	color: var(--dark);
+}
+
+.badge-medium {
+	background: #e3e5e8;
+	border-color: var(--border);
+	color: var(--ink);
+}
+
+.badge-hard {
+	background: var(--ink);
+	border-color: var(--ink);
+	color: #fff;
+}
+
+/* Completed rows fade their badge */
+.task:has(input:checked) .badge {
+	background: #fff;
+	border-color: var(--faint);
+	color: var(--faint);
+}
+
+.remove-task {
+	background: none;
+	border: none;
+	color: var(--muted);
+	font-size: 1.5rem;
+	line-height: 1;
+	margin-left: 1.5rem;
+	padding: 0 0.25rem;
+}
+
+.remove-task:hover {
+	color: var(--ink);
+}
+
+/* Counts + footer */
+.item-count {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--muted);
+}
+
+.footer {
+	text-align: center;
+	margin-top: 1.5rem;
+	color: var(--muted);
+	font-size: 0.8rem;
+	line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+	main {
+		padding: 1.25rem;
+	}
+
+	#todo-hours {
+		width: 4.5rem;
+	}
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>My Todo list</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<main>
+			<h1>Todo List</h1>
+
+			<form class="action">
+				<input id="todo-name" type="text" name="todo-name" placeholder="What needs to be done?" aria-label="Task name">
+				<input id="todo-hours" type="number" name="todo-hours" value="0" min="0" aria-label="Hours">
+				<button type="submit">Add</button>
+			</form>
+
+			<div class="filters">
+				<div class="filter-group">
+					<input id="all" type="radio" name="filter" value="All" checked>
+					<label for="all">All</label>
+					<input id="active" type="radio" name="filter" value="Active">
+					<label for="active">Active</label>
+					<input id="completed" type="radio" name="filter" value="Completed">
+					<label for="completed">Completed</label>
+				</div>
+				<button type="button" class="link-button">Mark all done</button>
+			</div>
+
+			<section class="tasks">
+
+				<div class="task">
+					<span class="task-left">
+						<input id="taskid0" type="checkbox" name="taskid0" value="taskid0">
+						<label for="taskid0" class="task-name">Reply to emails</label>
+					</span>
+					<span class="task-right">
+						<span class="badge badge-easy">Easy &#x2022; 1h</span>
+						<button type="button" class="remove-task" aria-label="Remove task">&times;</button>
+					</span>
+				</div>
+
+				<div class="task">
+					<span class="task-left">
+						<input id="taskid1" type="checkbox" name="taskid1" value="taskid1">
+						<label for="taskid1" class="task-name">Fix Website</label>
+					</span>
+					<span class="task-right">
+						<span class="badge badge-medium">Medium &#x2022; 4h</span>
+						<button type="button" class="remove-task" aria-label="Remove task">&times;</button>
+					</span>
+				</div>
+
+				<div class="task">
+					<span class="task-left">
+						<input id="taskid2" type="checkbox" name="taskid2" value="taskid2">
+						<label for="taskid2" class="task-name">Build Message System</label>
+					</span>
+					<span class="task-right">
+						<span class="badge badge-hard">Hard &#x2022; 6h</span>
+						<button type="button" class="remove-task" aria-label="Remove task">&times;</button>
+					</span>
+				</div>
+
+				<div class="task">
+					<span class="task-left">
+						<input checked id="taskid3" type="checkbox" name="taskid3" value="taskid3">
+						<label for="taskid3" class="task-name">Plan Animation Storyboard</label>
+					</span>
+					<span class="task-right">
+						<span class="badge badge-easy">Easy &#x2022; 2h</span>
+						<button type="button" class="remove-task" aria-label="Remove task">&times;</button>
+					</span>
+				</div>
+
+			</section>
+
+			<div class="item-count">
+				<span>3 items left &#x2022; 11 hours total</span>
+				<button type="button" class="link-button">Clear completed</button>
+			</div>
+
+			<div class="footer">
+				<div>Easy: up to 2h &#x2022; Medium: over 2h &#x2022; Hard: over 5h.</div>
+				<div>Double-click a task or its label to edit the text or hours. Press Enter to save, Esc to cancel.</div>
+			</div>
+
+		</main>
+	</body>
+</html>
